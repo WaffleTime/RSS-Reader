@@ -1,5 +1,5 @@
 //
-//  AvailableFeeds.h
+//  MyFeeds_Tab2.h
 //  RSS-Reader
 //
 //  Created by Super Student on 9/26/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AvailableFeeds : UITableViewController
-
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@interface MyFeeds_Tab2 : UITableViewController
 
 @end

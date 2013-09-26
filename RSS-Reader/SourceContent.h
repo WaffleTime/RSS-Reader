@@ -1,5 +1,5 @@
 //
-//  AvailableFeeds.h
+//  SourceContent.h
 //  RSS-Reader
 //
 //  Created by Super Student on 9/26/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AvailableFeeds : UITableViewController
-
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@interface SourceContent : UIViewController
 
 @end
