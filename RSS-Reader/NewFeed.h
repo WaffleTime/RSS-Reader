@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface NewFeed : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *confirmNewFeed;
+
+
+
 @end
+
+
