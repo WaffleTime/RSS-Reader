@@ -11,7 +11,7 @@
 
 @interface EditFeeds: UITableViewController
 {
-    sqlite3 *feedDB;
+    sqlite3 *feedsDB;
     NSString *dbPathString;
 }
 
