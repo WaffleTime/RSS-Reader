@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 CS-360_Students. All rights reserved.
 //
 
-#import "MyFeeds_Tab2.h"
+#import "EditFeeds.h"
 
-@interface MyFeeds_Tab2 ()
+@interface EditFeeds ()
 
 @end
 
-@implementation MyFeeds_Tab2
+@implementation EditFeeds
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

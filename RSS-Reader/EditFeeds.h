@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyFeeds_Tab2 : UITableViewController
+@interface EditFeeds: UITableViewController
 
 @end
