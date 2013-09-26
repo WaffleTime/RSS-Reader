@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--My Feeds Tab1 View Controller - My Feeds-->
+        <!--My Feeds Tab1 - My Feeds-->
         <scene sceneID="kGL-Ex-kfc">
             <objects>
-                <tableViewController id="H1G-Cj-zAh" customClass="MyFeeds_Tab1ViewController" sceneMemberID="viewController">
+                <tableViewController id="H1G-Cj-zAh" customClass="MyFeeds_Tab1" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xg4-HM-Z5L">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="My Feeds" id="P2v-3D-UFr"/>
                     <connections>
-                        <outlet property="tableView" destination="Xg4-HM-Z5L" id="u7S-aa-lj1"/>
+                        <outlet property="tableView" destination="Xg4-HM-Z5L" id="5a6-vH-HUj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rct-Xd-cVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,7 +221,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Available Feeds" id="dET-wo-HrN"/>
                     <connections>
-                        <outlet property="tableView" destination="LdR-wC-vPl" id="KsE-0h-nbk"/>
+                        <outlet property="tableView" destination="LdR-wC-vPl" id="pf3-My-Gx2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okf-3B-f4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,7 +276,7 @@
         <scene sceneID="uOb-Ce-jee">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="41Y-jC-bjv" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="b7u-bx-dXZ">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -293,6 +293,18 @@
         </scene>
     </scenes>
     <classes>
+        <class className="AvailableFeeds" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AvailableFeeds.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MyFeeds_Tab1" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyFeeds_Tab1.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
