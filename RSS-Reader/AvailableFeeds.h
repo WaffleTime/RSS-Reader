@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface AvailableFeeds : UITableViewController
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+
+
 @end
+
+
