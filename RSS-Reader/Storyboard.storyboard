@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="1395" y="-262"/>
         </scene>
-        <!--Edit Feeds - My Feeds-->
+        <!--Edit Feeds - Edit Feeds-->
         <scene sceneID="eff-lv-wRB">
             <objects>
                 <tableViewController id="fcf-um-2AI" customClass="EditFeeds" sceneMemberID="viewController">
@@ -61,7 +61,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ZmX-hh-RK4" detailTextLabel="5bG-Zf-sbT" style="IBUITableViewCellStyleSubtitle" id="fKe-Kd-YA3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditCell" textLabel="ZmX-hh-RK4" detailTextLabel="5bG-Zf-sbT" style="IBUITableViewCellStyleSubtitle" id="fKe-Kd-YA3">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -88,7 +88,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Feeds" id="GEX-1S-Caf">
+                    <navigationItem key="navigationItem" title="Edit Feeds" id="GEX-1S-Caf">
                         <barButtonItem key="leftBarButtonItem" title="-" id="fQn-dJ-6ma">
                             <connections>
                                 <action selector="deleteMode:" destination="fcf-um-2AI" id="64i-tr-T7I"/>
@@ -180,10 +180,10 @@
             </objects>
             <point key="canvasLocation" x="976" y="532"/>
         </scene>
-        <!--Available Feeds - Available Feeds-->
+        <!--Feed Items - Feed Items-->
         <scene sceneID="nj4-Io-gnV">
             <objects>
-                <viewController id="3p1-Cs-BIO" customClass="AvailableFeeds" sceneMemberID="viewController">
+                <viewController id="3p1-Cs-BIO" customClass="FeedItems" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZZP-we-yYF">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -191,7 +191,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LdR-wC-vPl">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TagCell" textLabel="O1K-Hi-9nX" style="IBUITableViewCellStyleDefault" id="b5f-xA-dn6">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FeedCell" textLabel="O1K-Hi-9nX" style="IBUITableViewCellStyleDefault" id="b5f-xA-dn6">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -223,7 +223,7 @@
                             <constraint firstItem="LdR-wC-vPl" firstAttribute="trailing" secondItem="ZZP-we-yYF" secondAttribute="trailing" type="default" id="ed6-x2-thf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Available Feeds" id="dET-wo-HrN"/>
+                    <navigationItem key="navigationItem" title="Feed Items" id="dET-wo-HrN"/>
                     <connections>
                         <outlet property="tableView" destination="LdR-wC-vPl" id="pf3-My-Gx2"/>
                     </connections>
@@ -297,16 +297,16 @@
         </scene>
     </scenes>
     <classes>
-        <class className="AvailableFeeds" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AvailableFeeds.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
         <class className="EditFeeds" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditFeeds.h"/>
             <relationships>
                 <relationship kind="action" name="deleteMode:"/>
+            </relationships>
+        </class>
+        <class className="FeedItems" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedItems.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="MyFeeds" superclassName="UITableViewController">

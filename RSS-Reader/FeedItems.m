@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 CS-360_Students. All rights reserved.
 //
 
-#import "AvailableFeeds.h"
+#import "FeedItems.h"
 
 
 
-@interface AvailableFeeds ()
+@interface FeedItems ()
 
 @end
 
 
 
-@implementation AvailableFeeds
+@implementation FeedItems
 
 
 

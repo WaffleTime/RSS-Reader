@@ -55,10 +55,10 @@
         const char *dbPath = [dbPathString UTF8String];
         
         //creat db here
-        if (sqlite3_open(dbPath, &taskDB)==SQLITE_OK) {
-            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS TASKS (ID INTEGER PRIMARY KEY, DATE CHAR(25), TASK CHAR(100))";
-            sqlite3_exec(taskDB, sql_stmt, NULL, NULL, &error);
-            sqlite3_close(taskDB);
+        if (sqlite3_open(dbPath, &feedDB)==SQLITE_OK) {
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS FEEDS (ID INTEGER PRIMARY KEY, TAG CHAR(30), URL CHAR(255))";
+            sqlite3_exec(feedDB, sql_stmt, NULL, NULL, &error);
+            sqlite3_close(feedDB);
         }
     }
 }
@@ -69,7 +69,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -83,7 +83,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    
     
     return cell;
 }

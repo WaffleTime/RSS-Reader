@@ -10,7 +10,7 @@
 
 
 
-@interface AvailableFeeds : UITableViewController
+@interface FeedItems : UITableViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
