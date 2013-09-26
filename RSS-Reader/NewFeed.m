@@ -34,14 +34,11 @@
 }
 
 
-
-
-
 - (void)createOrOpenDB
 {
     NSString *docPath = PROJECT_DIR;
     
-    dbPathString = [docPath stringByAppendingPathComponent:@"feedsDB.db"];
+    dbPathString = [docPath stringByAppendingPathComponent:@"Feeds.db"];
     
     char *error;
     
@@ -69,7 +66,9 @@
     
     if (sqlite3_open([dbPathString UTF8String], &feedsDB) == SQLITE_OK)
     {
-        NSString *insertStmt = [NSString stringWithFormat:@"INSERT INTO FEEDS(TAG,URL) values ('%s', '%s')", [self.tagField.text UTF8String], [self.urlField.text UTF8String]];
+        int feedID = 0;
+        
+        NSString *insertStmt = [NSString stringWithFormat:@"INSERT INTO FEEDS VALUES (%d,'%s','%s')", feedID, [self.tagField.text UTF8String], [self.urlField.text UTF8String]];
         
         const char *insert_stmt = [insertStmt UTF8String];
         
@@ -77,8 +76,16 @@
         {
             NSLog(@"confirmNewFeed pressed.");
         }
+        else
+        {
+            NSLog(@"INSERT query failed to execute.");
+        }
         
         sqlite3_close(feedsDB);
+    }
+    else
+    {
+        NSLog(@"DB failed to open when confirming a new feed.");
     }
 }
 
