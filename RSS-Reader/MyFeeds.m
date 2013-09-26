@@ -21,12 +21,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
 
+-(void)viewDidAppear:(BOOL)animated
+{
     [self createOrOpenDB];
     
     [self.tableView reloadData];
     
-    //NSLog(@"View did load.");
+    NSLog(@"View did appear.");
 }
 
 - (void)didReceiveMemoryWarning
