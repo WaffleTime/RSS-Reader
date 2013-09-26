@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 CS-360_Students. All rights reserved.
 //
 
-#import "MyFeeds_Tab1.h"
+#import "MyFeeds.h"
 
-@interface MyFeeds_Tab1 ()
+@interface MyFeeds ()
 
 @end
 
 
 
-@implementation MyFeeds_Tab1
+@implementation MyFeeds
 
 
 

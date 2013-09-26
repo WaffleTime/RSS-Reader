@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C11FD71017F4C94D00B39099 /* SourceContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C11FD70F17F4C94C00B39099 /* SourceContent.m */; };
+		C11FD71317F4C97E00B39099 /* EditFeeds.m in Sources */ = {isa = PBXBuildFile; fileRef = C11FD71217F4C97E00B39099 /* EditFeeds.m */; };
+		C11FD71617F4C99B00B39099 /* NewFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = C11FD71517F4C99B00B39099 /* NewFeed.m */; };
 		C1E56B7A17F4BD6700BFB280 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E56B7917F4BD6700BFB280 /* UIKit.framework */; };
 		C1E56B7C17F4BD6700BFB280 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E56B7B17F4BD6700BFB280 /* Foundation.framework */; };
 		C1E56B7E17F4BD6700BFB280 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E56B7D17F4BD6700BFB280 /* CoreGraphics.framework */; };
@@ -17,11 +20,17 @@
 		C1E56B8E17F4BD6700BFB280 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E56B8D17F4BD6700BFB280 /* Default@2x.png */; };
 		C1E56B9017F4BD6700BFB280 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C1E56B8F17F4BD6700BFB280 /* Default-568h@2x.png */; };
 		C1E56B9917F4C26300BFB280 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1E56B9817F4C26300BFB280 /* Storyboard.storyboard */; };
-		C1E56B9C17F4C63C00BFB280 /* MyFeeds_Tab1.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E56B9B17F4C63C00BFB280 /* MyFeeds_Tab1.m */; };
+		C1E56B9C17F4C63C00BFB280 /* MyFeeds.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E56B9B17F4C63C00BFB280 /* MyFeeds.m */; };
 		C1E56B9F17F4C6F600BFB280 /* AvailableFeeds.m in Sources */ = {isa = PBXBuildFile; fileRef = C1E56B9E17F4C6F600BFB280 /* AvailableFeeds.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C11FD70E17F4C94C00B39099 /* SourceContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceContent.h; sourceTree = "<group>"; };
+		C11FD70F17F4C94C00B39099 /* SourceContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceContent.m; sourceTree = "<group>"; };
+		C11FD71117F4C97E00B39099 /* EditFeeds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFeeds.h; sourceTree = "<group>"; };
+		C11FD71217F4C97E00B39099 /* EditFeeds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFeeds.m; sourceTree = "<group>"; };
+		C11FD71417F4C99B00B39099 /* NewFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeed.h; sourceTree = "<group>"; };
+		C11FD71517F4C99B00B39099 /* NewFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeed.m; sourceTree = "<group>"; };
 		C1E56B7617F4BD6700BFB280 /* RSS-Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSS-Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E56B7917F4BD6700BFB280 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C1E56B7B17F4BD6700BFB280 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -36,8 +45,8 @@
 		C1E56B8D17F4BD6700BFB280 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C1E56B8F17F4BD6700BFB280 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C1E56B9817F4C26300BFB280 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		C1E56B9A17F4C63C00BFB280 /* MyFeeds_Tab1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeeds_Tab1.h; sourceTree = "<group>"; };
-		C1E56B9B17F4C63C00BFB280 /* MyFeeds_Tab1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeeds_Tab1.m; sourceTree = "<group>"; };
+		C1E56B9A17F4C63C00BFB280 /* MyFeeds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeeds.h; sourceTree = "<group>"; };
+		C1E56B9B17F4C63C00BFB280 /* MyFeeds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeeds.m; sourceTree = "<group>"; };
 		C1E56B9D17F4C6F600BFB280 /* AvailableFeeds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailableFeeds.h; sourceTree = "<group>"; };
 		C1E56B9E17F4C6F600BFB280 /* AvailableFeeds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailableFeeds.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,11 +98,17 @@
 				C1E56B9817F4C26300BFB280 /* Storyboard.storyboard */,
 				C1E56B9D17F4C6F600BFB280 /* AvailableFeeds.h */,
 				C1E56B9E17F4C6F600BFB280 /* AvailableFeeds.m */,
-				C1E56B9A17F4C63C00BFB280 /* MyFeeds_Tab1.h */,
-				C1E56B9B17F4C63C00BFB280 /* MyFeeds_Tab1.m */,
+				C1E56B9A17F4C63C00BFB280 /* MyFeeds.h */,
+				C1E56B9B17F4C63C00BFB280 /* MyFeeds.m */,
 				C1E56B8817F4BD6700BFB280 /* AppDelegate.h */,
 				C1E56B8917F4BD6700BFB280 /* AppDelegate.m */,
 				C1E56B8017F4BD6700BFB280 /* Supporting Files */,
+				C11FD70E17F4C94C00B39099 /* SourceContent.h */,
+				C11FD70F17F4C94C00B39099 /* SourceContent.m */,
+				C11FD71117F4C97E00B39099 /* EditFeeds.h */,
+				C11FD71217F4C97E00B39099 /* EditFeeds.m */,
+				C11FD71417F4C99B00B39099 /* NewFeed.h */,
+				C11FD71517F4C99B00B39099 /* NewFeed.m */,
 			);
 			path = "RSS-Reader";
 			sourceTree = "<group>";
@@ -180,8 +195,11 @@
 			files = (
 				C1E56B8617F4BD6700BFB280 /* main.m in Sources */,
 				C1E56B8A17F4BD6700BFB280 /* AppDelegate.m in Sources */,
-				C1E56B9C17F4C63C00BFB280 /* MyFeeds_Tab1.m in Sources */,
+				C1E56B9C17F4C63C00BFB280 /* MyFeeds.m in Sources */,
 				C1E56B9F17F4C6F600BFB280 /* AvailableFeeds.m in Sources */,
+				C11FD71017F4C94D00B39099 /* SourceContent.m in Sources */,
+				C11FD71317F4C97E00B39099 /* EditFeeds.m in Sources */,
+				C11FD71617F4C99B00B39099 /* NewFeed.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +316,7 @@
 				C1E56B9517F4BD6700BFB280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

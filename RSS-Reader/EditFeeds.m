@@ -10,6 +10,8 @@
 
 @interface EditFeeds ()
 
+-(void)deleteData:(NSString *)deleteQuery :(NSString *) selectQuery;
+
 @end
 
 @implementation EditFeeds
@@ -44,14 +46,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 0;
 }
@@ -66,44 +66,55 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (IBAction)deleteMode:(id)sender
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
+    NSLog(@"delete mode!");
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        [self deleteData:[NSString stringWithFormat:@"DELETE FROM FEEDS WHERE ID=%d", indexPath.row+1] :[NSString stringWithFormat:@"UPDATE FEEDS SET ID=ID-1 WHERE ID>%d",indexPath.row+1]];
+        
+        NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+        [[UIApplication sharedApplication] cancelLocalNotification:[localNotifications objectAtIndex:indexPath.row]];
+        
+        localNotifications = nil;
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+-(void)deleteData:(NSString *)deleteQuery :(NSString *) selectQuery
 {
+    
+    // Open the database from the users filessytem
+    if(sqlite3_open([dbPathString UTF8String], &taskDB) == SQLITE_OK)
+    {
+        char *error;
+        
+        if (sqlite3_exec(taskDB, [deleteQuery UTF8String], NULL, NULL, &error)==SQLITE_OK)
+        {
+            NSLog(@"Task deleted");
+            
+            
+            if (sqlite3_exec(taskDB, [selectQuery UTF8String], NULL, NULL, &error)==SQLITE_OK)
+            {
+                NSLog(@"Subsequent item's IDs have been updated.");
+            }
+            else
+            {
+                NSLog(@"Subsequent item's IDs have not been updated.");
+            }
+        }
+        else
+        {
+            NSLog(@"Task wasn't deleted!");
+        }
+    }
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

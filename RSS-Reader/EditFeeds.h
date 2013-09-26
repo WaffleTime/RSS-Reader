@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface EditFeeds: UITableViewController
+{
+    sqlite3 *taskDB;
+    NSString *dbPathString;
+}
 
 @end
