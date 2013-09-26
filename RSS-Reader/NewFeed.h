@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "sqlite3.h"
+
 
 
 @interface NewFeed : UIViewController
+{
+    NSString *dbPathString;
+    
+    sqlite3 *feedsDB;
+}
 
 
 @property (strong, nonatomic) IBOutlet UITextField *tagField;
