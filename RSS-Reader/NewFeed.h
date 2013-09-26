@@ -12,7 +12,15 @@
 
 @interface NewFeed : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *confirmNewFeed;
+
+@property (strong, nonatomic) IBOutlet UITextField *tagField;
+
+@property (strong, nonatomic) IBOutlet UITextField *urlField;
+
+
+
+- (IBAction)confirmNewFeed:(id)sender;
+
 
 
 

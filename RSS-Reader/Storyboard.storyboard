@@ -155,10 +155,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Feed" id="gRM-W5-YjB">
-                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="veq-dH-ZaU"/>
+                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="veq-dH-ZaU">
+                            <connections>
+                                <action selector="confirmNewFeed:" destination="mBF-rp-J5p" id="lee-Mi-Toy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="confirmNewFeed" destination="veq-dH-ZaU" id="mzT-jX-cRF"/>
+                        <outlet property="tagField" destination="xzF-JD-wQv" id="dUZ-ru-JnO"/>
+                        <outlet property="urlField" destination="7hv-g3-qCz" id="lB2-Dn-o3X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7e-je-b87" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -324,7 +330,9 @@
         <class className="NewFeed" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFeed.h"/>
             <relationships>
-                <relationship kind="outlet" name="confirmNewFeed" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="confirmNewFeed:"/>
+                <relationship kind="outlet" name="tagField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="urlField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="SourceContent" superclassName="UIViewController">
