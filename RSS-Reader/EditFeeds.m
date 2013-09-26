@@ -29,11 +29,11 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self createOrOpenDB];
+    
+    [self.tableView reloadData];
+    
+    //NSLog(@"View did load.");
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +46,7 @@
 {
     NSString *docPath = PROJECT_DIR;
     
-    dbPathString = [docPath stringByAppendingPathComponent:@"ToDoList.db"];
+    dbPathString = [docPath stringByAppendingPathComponent:@"Feeds.db"];
     
     char *error;
     
@@ -131,6 +131,10 @@
             {
                 [cell.textLabel setText:[NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)]];
                 [cell.detailTextLabel setText:[NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)]];
+            }
+            else
+            {
+                NSLog(@"Something went wrong stepping through the SELECT query for populating cell at %d.", indexPath.row);
             }
         }
         else
