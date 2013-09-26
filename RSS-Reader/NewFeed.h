@@ -12,7 +12,7 @@
 
 
 
-@interface NewFeed : UIViewController
+@interface NewFeed : UIViewController //<UITableViewDelegate, UITableViewDataSource>
 {
     NSString *dbPathString;
     

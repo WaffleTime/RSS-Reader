@@ -76,8 +76,6 @@
         if (sqlite3_exec(feedsDB, insert_stmt, NULL, NULL, &error) == SQLITE_OK)
         {
             NSLog(@"confirmNewFeed pressed.");
-            
-            //[self showAll:(id)sender];
         }
         
         sqlite3_close(feedsDB);
