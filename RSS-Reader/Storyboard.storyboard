@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="41Y-jC-bjv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="41Y-jC-bjv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--My Feeds Tab1 - My Feeds-->
+        <!--My Feeds - My Feeds-->
         <scene sceneID="kGL-Ex-kfc">
             <objects>
-                <tableViewController id="H1G-Cj-zAh" customClass="MyFeeds_Tab1" sceneMemberID="viewController">
+                <tableViewController id="H1G-Cj-zAh" customClass="MyFeeds" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xg4-HM-Z5L">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="1395" y="-262"/>
         </scene>
-        <!--Table View Controller - My Feeds-->
+        <!--Edit Feeds - My Feeds-->
         <scene sceneID="eff-lv-wRB">
             <objects>
-                <tableViewController id="fcf-um-2AI" sceneMemberID="viewController">
+                <tableViewController id="fcf-um-2AI" customClass="EditFeeds" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="G6V-bZ-f9d">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,7 +89,11 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Feeds" id="GEX-1S-Caf">
-                        <barButtonItem key="leftBarButtonItem" title="-" id="fQn-dJ-6ma"/>
+                        <barButtonItem key="leftBarButtonItem" title="-" id="fQn-dJ-6ma">
+                            <connections>
+                                <action selector="deleteMode:" destination="fcf-um-2AI" id="64i-tr-T7I"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="+" id="6OY-N4-2sS">
                             <connections>
                                 <segue destination="mBF-rp-J5p" kind="push" id="XrV-td-J86"/>
@@ -101,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="1395" y="532"/>
         </scene>
-        <!--View Controller - New Feed-->
+        <!--New Feed - New Feed-->
         <scene sceneID="F8H-B1-U42">
             <objects>
-                <viewController id="mBF-rp-J5p" sceneMemberID="viewController">
+                <viewController id="mBF-rp-J5p" customClass="NewFeed" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cB5-mb-atE">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -194,7 +198,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O1K-Hi-9nX">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" id="O1K-Hi-9nX">
                                                     <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -228,10 +232,10 @@
             </objects>
             <point key="canvasLocation" x="1838" y="-262"/>
         </scene>
-        <!--View Controller - Source Content-->
+        <!--Source Content - Source Content-->
         <scene sceneID="5FJ-UB-Ojj">
             <objects>
-                <viewController id="mtf-vB-u5M" sceneMemberID="viewController">
+                <viewController id="mtf-vB-u5M" customClass="SourceContent" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jbf-6T-8Ph">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -299,14 +303,26 @@
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
-        <class className="MyFeeds_Tab1" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyFeeds_Tab1.h"/>
+        <class className="EditFeeds" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditFeeds.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteMode:"/>
+            </relationships>
+        </class>
+        <class className="MyFeeds" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyFeeds.h"/>
             <relationships>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NewFeed" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFeed.h"/>
+        </class>
+        <class className="SourceContent" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SourceContent.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

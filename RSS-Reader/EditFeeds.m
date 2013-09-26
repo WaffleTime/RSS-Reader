@@ -42,6 +42,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)createOrOpenDB
+{
+    NSString *docPath = PROJECT_DIR;
+    
+    dbPathString = [docPath stringByAppendingPathComponent:@"ToDoList.db"];
+    
+    char *error;
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:dbPathString]) {
+        const char *dbPath = [dbPathString UTF8String];
+        
+        //creat db here
+        if (sqlite3_open(dbPath, &taskDB)==SQLITE_OK) {
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS TASKS (ID INTEGER PRIMARY KEY, DATE CHAR(25), TASK CHAR(100))";
+            sqlite3_exec(taskDB, sql_stmt, NULL, NULL, &error);
+            sqlite3_close(taskDB);
+        }
+    }
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -78,11 +100,6 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self deleteData:[NSString stringWithFormat:@"DELETE FROM FEEDS WHERE ID=%d", indexPath.row+1] :[NSString stringWithFormat:@"UPDATE FEEDS SET ID=ID-1 WHERE ID>%d",indexPath.row+1]];
         
-        NSArray *localNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
-        [[UIApplication sharedApplication] cancelLocalNotification:[localNotifications objectAtIndex:indexPath.row]];
-        
-        localNotifications = nil;
-        
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
@@ -91,16 +108,16 @@
 {
     
     // Open the database from the users filessytem
-    if(sqlite3_open([dbPathString UTF8String], &taskDB) == SQLITE_OK)
+    if(sqlite3_open([dbPathString UTF8String], &feedDB) == SQLITE_OK)
     {
         char *error;
         
-        if (sqlite3_exec(taskDB, [deleteQuery UTF8String], NULL, NULL, &error)==SQLITE_OK)
+        if (sqlite3_exec(feedDB, [deleteQuery UTF8String], NULL, NULL, &error)==SQLITE_OK)
         {
             NSLog(@"Task deleted");
             
             
-            if (sqlite3_exec(taskDB, [selectQuery UTF8String], NULL, NULL, &error)==SQLITE_OK)
+            if (sqlite3_exec(feedDB, [selectQuery UTF8String], NULL, NULL, &error)==SQLITE_OK)
             {
                 NSLog(@"Subsequent item's IDs have been updated.");
             }
@@ -116,17 +133,5 @@
     }
 }
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 @end

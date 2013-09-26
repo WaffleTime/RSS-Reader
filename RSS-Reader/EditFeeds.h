@@ -11,8 +11,12 @@
 
 @interface EditFeeds: UITableViewController
 {
-    sqlite3 *taskDB;
+    sqlite3 *feedDB;
     NSString *dbPathString;
 }
+
+- (void)createOrOpenDB;
+
+- (IBAction)deleteMode:(id)sender;
 
 @end
