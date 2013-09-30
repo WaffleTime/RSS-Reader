@@ -8,6 +8,8 @@
 
 #import "MyFeeds.h"
 
+#import "FeedItems.h"
+
 @interface MyFeeds ()
 
 @end
