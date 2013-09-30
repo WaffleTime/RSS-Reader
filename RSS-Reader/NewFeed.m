@@ -66,19 +66,49 @@
     
     if (sqlite3_open([dbPathString UTF8String], &feedsDB) == SQLITE_OK)
     {
-        int feedID = 0;
+        int feedID = -1;
         
-        NSString *insertStmt = [NSString stringWithFormat:@"INSERT INTO FEEDS VALUES (%d,'%s','%s')", feedID, [self.tagField.text UTF8String], [self.urlField.text UTF8String]];
+        const char *findStmt = "SELECT COUNT(*) FROM FEEDS";
+        sqlite3_stmt *compiledStatement;
         
-        const char *insert_stmt = [insertStmt UTF8String];
-        
-        if (sqlite3_exec(feedsDB, insert_stmt, NULL, NULL, &error) == SQLITE_OK)
+        if (sqlite3_prepare_v2(feedsDB, findStmt, -1, &compiledStatement, NULL) == SQLITE_OK)
         {
-            NSLog(@"confirmNewFeed pressed.");
+            //Step through to count rows.
+            if (sqlite3_step(compiledStatement) != SQLITE_ERROR)
+            {
+                NSLog(@"db id will be %d", sqlite3_column_int(compiledStatement, 0) + 1);
+                
+                feedID = sqlite3_column_int(compiledStatement, 0) + 1;
+            }
+            else
+            {
+                NSLog(@"There was an error executing the COUNT(*) query for getting the number of rows.");
+            }
         }
         else
         {
-            NSLog(@"INSERT query failed to execute.");
+            NSLog(@"There was an error preparing the COUNT(*) query for getting the number of rows.");
+        }
+        sqlite3_finalize(compiledStatement);
+        
+        if (feedID != -1)
+        {
+            NSString *insertStmt = [NSString stringWithFormat:@"INSERT INTO FEEDS VALUES (%d,'%s','%s')", feedID, [self.tagField.text UTF8String], [self.urlField.text UTF8String]];
+            
+            const char *insert_stmt = [insertStmt UTF8String];
+            
+            if (sqlite3_exec(feedsDB, insert_stmt, NULL, NULL, &error) == SQLITE_OK)
+            {
+                NSLog(@"confirmNewFeed pressed.");
+            }
+            else
+            {
+                NSLog(@"INSERT query failed to execute.");
+            }
+        }
+        else
+        {
+            NSLog(@"Item not added to db.");
         }
         
         sqlite3_close(feedsDB);
