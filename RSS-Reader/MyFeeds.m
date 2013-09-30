@@ -153,5 +153,51 @@
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSString *urlString = @"";
+        
+        if(sqlite3_open([dbPathString UTF8String], &feedsDB) == SQLITE_OK)
+        {
+            //NSLog(@"The sql query is, %@",[NSString stringWithFormat:@"SELECT * FROM TASKS WHERE ID=%d",(int)indexPath.row+1]);
+            
+            // Setup the SQL Statement and compile it for faster access
+            const char *sqlStatement = [[NSString stringWithFormat:@"SELECT URL FROM FEEDS WHERE ID=%d",(int)indexPath.row+1] UTF8String];
+            sqlite3_stmt *compiledStatement;
+            
+            if(sqlite3_prepare(feedsDB, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK)
+            {
+                // Loop through the results and add them to the feeds array
+                if(sqlite3_step(compiledStatement) == SQLITE_ROW)
+                {
+                    urlString = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 0)];
+                }
+                else
+                {
+                    NSLog(@"Something went wrong stepping through the SELECT query for seguing at row %d.", indexPath.row);
+                }
+            }
+            else
+            {
+                NSLog(@"Something went wrong in seguing from the row, %d", indexPath.row + 1);
+            }
+            // Release the compiled statement from memory
+            sqlite3_finalize(compiledStatement);
+            sqlite3_close(feedsDB);
+        }
+        else
+        {
+            NSLog(@"There was a problem opening the db when seguing from cells.");
+        }
+
+        [[segue destinationViewController] setUrl:urlString];
+        
+        NSLog(@"The url for the segue:%@",urlString);
+    }
+}
+
+
 
 @end
