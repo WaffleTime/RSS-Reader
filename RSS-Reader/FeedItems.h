@@ -12,7 +12,7 @@
 
 @interface FeedItems : UITableViewController <NSXMLParserDelegate>
 
-@property (copy, nonatomic, getter = getUrl) NSString *url;
+@property (copy, nonatomic, getter = getUrl, setter = setUrl:) NSString *url;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

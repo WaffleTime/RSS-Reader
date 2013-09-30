@@ -157,7 +157,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showFeed"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSString *urlString = @"";
         
@@ -197,6 +197,10 @@
         [[segue destinationViewController] setUrl:urlString];
         
         NSLog(@"The url for the segue:%@",urlString);
+    }
+    else
+    {
+        NSLog(@"url was not set during segue, because segue identifier is %@", [segue identifier]);
     }
 }
 

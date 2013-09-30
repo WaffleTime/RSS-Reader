@@ -27,38 +27,21 @@
 @implementation FeedItems
 
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
-
-
-
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
 
 
-
-
-
 - (void)viewDidAppear:(BOOL)animated
 {
     feeds = [[NSMutableArray alloc] init];
-    //NSURL *url = [NSURL URLWithString:@"http://images.apple.com/main/rss/hotnews/hotnews.rss"];
-    //NSURL *url = [NSURL URLWithString:@"http://www.popsci.com/rss.xml"];
-    //NSURL *url = [NSURL URLWithString:@"http://rss.nytimes.com/services/xml/rss/nyt/GlobalHome.xml"];
+    NSLog(@"Feed url:%@", [self getUrl]);
     parser = [[NSXMLParser alloc] initWithContentsOfURL: [NSURL URLWithString:[self getUrl]]];
     [parser setDelegate:self];
     [parser setShouldResolveExternalEntities:NO];
     [parser parse];
 }
-
-
-
 
 
 - (void)didReceiveMemoryWarning
@@ -77,7 +60,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell" forIndexPath:indexPath];
     cell.textLabel.text = [[feeds objectAtIndex:indexPath.row] objectForKey: @"title"];
     return cell;
 }
@@ -126,7 +109,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showSource"]) {
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSString *string = [feeds[indexPath.row] objectForKey: @"link"];

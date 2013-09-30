@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="41Y-jC-bjv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="41Y-jC-bjv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -38,7 +38,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="3p1-Cs-BIO" kind="push" id="F9t-mU-1Wd"/>
+                                    <segue destination="GJM-Xu-CAn" kind="push" identifier="showFeed" id="hzC-pd-PpM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -188,57 +188,45 @@
             </objects>
             <point key="canvasLocation" x="976" y="532"/>
         </scene>
-        <!--Feed Items - Feed Items-->
-        <scene sceneID="nj4-Io-gnV">
+        <!--Feed Items - Feed-->
+        <scene sceneID="rFf-zB-XFa">
             <objects>
-                <viewController id="3p1-Cs-BIO" customClass="FeedItems" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ZZP-we-yYF">
+                <tableViewController title="Feed" id="GJM-Xu-CAn" customClass="FeedItems" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="onw-hi-BVg">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LdR-wC-vPl">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FeedCell" textLabel="O1K-Hi-9nX" style="IBUITableViewCellStyleDefault" id="b5f-xA-dn6">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" id="O1K-Hi-9nX">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <segue destination="mtf-vB-u5M" kind="push" id="NJT-Kh-kyr"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="LdR-wC-vPl" firstAttribute="top" secondItem="ZZP-we-yYF" secondAttribute="top" type="default" id="6At-rc-rRD"/>
-                            <constraint firstItem="LdR-wC-vPl" firstAttribute="bottom" secondItem="ZZP-we-yYF" secondAttribute="bottom" type="default" id="Ga8-fM-TVD"/>
-                            <constraint firstItem="LdR-wC-vPl" firstAttribute="leading" secondItem="ZZP-we-yYF" secondAttribute="leading" type="default" id="cWB-A6-44R"/>
-                            <constraint firstItem="LdR-wC-vPl" firstAttribute="trailing" secondItem="ZZP-we-yYF" secondAttribute="trailing" type="default" id="ed6-x2-thf"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Feed Items" id="dET-wo-HrN"/>
-                    <connections>
-                        <outlet property="tableView" destination="LdR-wC-vPl" id="pf3-My-Gx2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="okf-3B-f4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell" textLabel="ay2-Ea-fyd" style="IBUITableViewCellStyleDefault" id="bqn-6F-GS2">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ay2-Ea-fyd">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="mtf-vB-u5M" kind="push" identifier="showSource" id="FPa-GX-CWr"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GJM-Xu-CAn" id="RrR-VB-g57"/>
+                            <outlet property="delegate" destination="GJM-Xu-CAn" id="ZOX-Em-Ppj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Feed Items" id="sWo-Ri-zmX"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZf-n7-bDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="-262"/>
+            <point key="canvasLocation" x="1857" y="-275"/>
         </scene>
         <!--Source Content - Source Content-->
         <scene sceneID="5FJ-UB-Ojj">
@@ -261,6 +249,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Source Content" id="XE4-NI-znX"/>
+                    <connections>
+                        <outlet property="webView" destination="Egh-oa-BmB" id="dx9-ah-vyZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSc-wk-zlo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -336,6 +327,9 @@
         </class>
         <class className="SourceContent" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SourceContent.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
