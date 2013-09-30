@@ -10,7 +10,9 @@
 
 
 
-@interface FeedItems : UITableViewController
+@interface FeedItems : UITableViewController <NSXMLParserDelegate>
+
+@property (copy, nonatomic) NSString *url;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
@@ -19,12 +21,3 @@
 @end
 
 
-/*
- #import <UIKit/UIKit.h>
- 
- @interface APPMasterViewController : UITableViewController <NSXMLParserDelegate>
- 
- @property (strong, nonatomic) IBOutlet UITableView *tableView;
- 
- @end
-*/
