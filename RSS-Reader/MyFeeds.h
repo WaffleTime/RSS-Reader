@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
 
-
 @interface MyFeeds : UITableViewController
 {
     sqlite3 *feedsDB;
