@@ -28,8 +28,11 @@
 
 - (IBAction)confirmNewFeed:(id)sender;
 
+- (IBAction)taskEntered:(UITextField *)textField;
 
+- (IBAction)textFieldTagLimiter:(UITextField *)textField;
 
+- (IBAction)textFieldURLLimiter:(UITextField *)textField;
 
 @end
 

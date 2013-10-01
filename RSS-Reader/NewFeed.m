@@ -12,6 +12,8 @@
 
 @interface NewFeed ()
 
+-(void)createOrOpenDB;
+
 @end
 
 
@@ -55,70 +57,103 @@
     }
 }
 
-
-
-
-
-
 - (IBAction)confirmNewFeed:(id)sender
 {
-    char *error;
-    
-    if (sqlite3_open([dbPathString UTF8String], &feedsDB) == SQLITE_OK)
+    //Both textFields need to have text entered before they can be added into the feedDB.
+    if (![_tagField.text isEqualToString:@""]
+        && ![_urlField.text isEqualToString:@""])
     {
-        int feedID = -1;
+        char *error;
         
-        const char *findStmt = "SELECT COUNT(*) FROM FEEDS";
-        sqlite3_stmt *compiledStatement;
-        
-        if (sqlite3_prepare_v2(feedsDB, findStmt, -1, &compiledStatement, NULL) == SQLITE_OK)
+        if (sqlite3_open([dbPathString UTF8String], &feedsDB) == SQLITE_OK)
         {
-            //Step through to count rows.
-            if (sqlite3_step(compiledStatement) != SQLITE_ERROR)
+            int feedID = -1;
+            
+            const char *findStmt = "SELECT COUNT(*) FROM FEEDS";
+            sqlite3_stmt *compiledStatement;
+            
+            if (sqlite3_prepare_v2(feedsDB, findStmt, -1, &compiledStatement, NULL) == SQLITE_OK)
             {
-                NSLog(@"db id will be %d", sqlite3_column_int(compiledStatement, 0) + 1);
+                //Step through to count rows.
+                if (sqlite3_step(compiledStatement) != SQLITE_ERROR)
+                {
+                    NSLog(@"db id will be %d", sqlite3_column_int(compiledStatement, 0) + 1);
+                    
+                    feedID = sqlite3_column_int(compiledStatement, 0) + 1;
+                }
+                else
+                {
+                    NSLog(@"There was an error executing the COUNT(*) query for getting the number of rows.");
+                }
+            }
+            else
+            {
+                NSLog(@"There was an error preparing the COUNT(*) query for getting the number of rows.");
+            }
+            sqlite3_finalize(compiledStatement);
+            
+            if (feedID != -1)
+            {
+                NSString *insertStmt = [NSString stringWithFormat:@"INSERT INTO FEEDS VALUES (%d,'%s','%s')", feedID, [self.tagField.text UTF8String], [self.urlField.text UTF8String]];
                 
-                feedID = sqlite3_column_int(compiledStatement, 0) + 1;
+                const char *insert_stmt = [insertStmt UTF8String];
+                
+                if (sqlite3_exec(feedsDB, insert_stmt, NULL, NULL, &error) == SQLITE_OK)
+                {
+                    NSLog(@"confirmNewFeed pressed.");
+                }
+                else
+                {
+                    NSLog(@"INSERT query failed to execute.");
+                }
             }
             else
             {
-                NSLog(@"There was an error executing the COUNT(*) query for getting the number of rows.");
+                NSLog(@"Item not added to db.");
             }
+            
+            sqlite3_close(feedsDB);
         }
         else
         {
-            NSLog(@"There was an error preparing the COUNT(*) query for getting the number of rows.");
+            NSLog(@"DB failed to open when confirming a new feed.");
         }
-        sqlite3_finalize(compiledStatement);
-        
-        if (feedID != -1)
-        {
-            NSString *insertStmt = [NSString stringWithFormat:@"INSERT INTO FEEDS VALUES (%d,'%s','%s')", feedID, [self.tagField.text UTF8String], [self.urlField.text UTF8String]];
-            
-            const char *insert_stmt = [insertStmt UTF8String];
-            
-            if (sqlite3_exec(feedsDB, insert_stmt, NULL, NULL, &error) == SQLITE_OK)
-            {
-                NSLog(@"confirmNewFeed pressed.");
-            }
-            else
-            {
-                NSLog(@"INSERT query failed to execute.");
-            }
-        }
-        else
-        {
-            NSLog(@"Item not added to db.");
-        }
-        
-        sqlite3_close(feedsDB);
-    }
-    else
-    {
-        NSLog(@"DB failed to open when confirming a new feed.");
     }
 }
 
+
+//This is called when the Task textfield is done entering text into it. The keyboard's return button and tapping outside of the
+//  screen will trigger this.
+- (IBAction)taskEntered:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+
+
+//This limits the TextField belonging to the feed's tag.
+- (IBAction)textFieldTagLimiter:(UITextField *)textField
+{
+    //NSLog(@"Limiting tag text");
+    
+    int limit = 30;
+    
+    if ([textField.text length] > limit) {
+        textField.text = [textField.text substringToIndex:limit];
+    }
+}
+
+
+//This limits the TextField belonging to the feed's url.
+- (IBAction)textFieldURLLimiter:(UITextField *)textField
+{
+    //NSLog(@"Limiting url text");
+    
+    int limit = 255;
+    
+    if ([textField.text length] > limit) {
+        textField.text = [textField.text substringToIndex:limit];
+    }
+}
 
 
 @end

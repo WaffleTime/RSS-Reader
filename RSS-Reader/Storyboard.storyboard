@@ -130,13 +130,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Msn: News" clearsOnBeginEditing="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xzF-JD-wQv">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Msn: News" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xzF-JD-wQv">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="taskEntered:" destination="p7e-je-b87" eventType="editingDidEnd" id="lSm-kf-faz"/>
+                                    <action selector="taskEntered:" destination="p7e-je-b87" eventType="touchUpOutside" id="nYy-9I-tBF"/>
+                                    <action selector="textFieldTagLimiter:" destination="p7e-je-b87" eventType="editingChanged" id="3qI-T3-bUS"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://www.msn.com/rss/msnnews.aspx" clearsOnBeginEditing="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7hv-g3-qCz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://www.msn.com/rss/msnnews.aspx" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7hv-g3-qCz">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="taskEntered:" destination="p7e-je-b87" eventType="touchUpOutside" id="FeJ-Ma-4SH"/>
+                                    <action selector="taskEntered:" destination="p7e-je-b87" eventType="editingDidEnd" id="QoA-0v-Y0G"/>
+                                    <action selector="textFieldURLLimiter:" destination="p7e-je-b87" eventType="editingChanged" id="XfY-6l-qgC"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -321,6 +331,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFeed.h"/>
             <relationships>
                 <relationship kind="action" name="confirmNewFeed:"/>
+                <relationship kind="action" name="taskEntered:" candidateClass="UITextField"/>
+                <relationship kind="action" name="textFieldTagLimiter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="textFieldURLLimiter:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="tagField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="urlField" candidateClass="UITextField"/>
             </relationships>
