@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="dau-5A-Leu">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--My Feeds - My Feeds-->
+        <scene sceneID="JU9-9m-B3T">
+            <objects>
+                <tableViewController id="R5x-dO-5P9" customClass="MyFeeds" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ou7-XV-M7c">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TagCell" textLabel="zxC-Tg-KJw" detailTextLabel="Auf-uO-VrN" style="IBUITableViewCellStyleSubtitle" id="f3H-Q0-Z37">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="748" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zxC-Tg-KJw">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Auf-uO-VrN">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="z5M-OC-WMr" kind="push" identifier="showFeed" id="Plg-v0-BRM"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Feeds" id="EZl-PL-yxU"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ou7-XV-M7c" id="haB-HC-xrg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9Q-dB-ryQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1319" y="-634"/>
+        </scene>
+        <!--Edit Feeds - Edit Feeds-->
+        <scene sceneID="qec-1A-Pnu">
+            <objects>
+                <tableViewController id="Z1h-gP-sNO" customClass="EditFeeds" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Las-Ko-lUY">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EditCell" textLabel="Zox-kp-nyu" detailTextLabel="feo-OD-hBf" style="IBUITableViewCellStyleSubtitle" id="bqi-Qs-nBR">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zox-kp-nyu">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="6" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="feo-OD-hBf">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Edit Feeds" id="tDu-pI-v4V">
+                        <barButtonItem key="leftBarButtonItem" title="-" id="gNe-FZ-3sw">
+                            <connections>
+                                <action selector="deleteMode:" destination="Z1h-gP-sNO" id="p6M-5N-qc5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="u2Y-Ws-qwj">
+                            <connections>
+                                <segue destination="BHB-W5-0kp" kind="push" id="mAn-GR-Jf8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rni-tw-Zz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1299" y="676"/>
+        </scene>
+        <!--New Feed - New Feed-->
+        <scene sceneID="CZK-ad-qDy">
+            <objects>
+                <viewController id="BHB-W5-0kp" customClass="NewFeed" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bw-3y-cnp">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tag Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kw2-AQ-wpj">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="4Ns-cB-wez"/>
+                                    <constraint firstAttribute="height" constant="21" id="Aca-h8-Zxa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Feed URL:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5t-CI-kxS">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="cbA-nm-20L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Msn: News" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8g6-i4-gc7">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="taskEntered:" destination="S3x-PM-EgJ" eventType="touchUpOutside" id="E9r-3Z-u3O"/>
+                                    <action selector="taskEntered:" destination="S3x-PM-EgJ" eventType="editingDidEnd" id="oJ3-lf-jbI"/>
+                                    <action selector="textFieldTagLimiter:" destination="S3x-PM-EgJ" eventType="editingChanged" id="pyR-6J-gch"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="http://www.msn.com/rss/msnnews.aspx" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Mt3-fD-Ho1">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="taskEntered:" destination="S3x-PM-EgJ" eventType="editingDidEnd" id="YmH-Ub-5rk"/>
+                                    <action selector="taskEntered:" destination="S3x-PM-EgJ" eventType="touchUpOutside" id="rZX-JP-bXB"/>
+                                    <action selector="textFieldURLLimiter:" destination="S3x-PM-EgJ" eventType="editingChanged" id="j9d-Hf-1hP"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y5t-CI-kxS" firstAttribute="leading" secondItem="8bw-3y-cnp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="00r-jd-KWk"/>
+                            <constraint firstAttribute="trailing" secondItem="Mt3-fD-Ho1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="CVw-JK-trf"/>
+                            <constraint firstItem="Mt3-fD-Ho1" firstAttribute="top" secondItem="Y5t-CI-kxS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ELw-O6-CIN"/>
+                            <constraint firstItem="8g6-i4-gc7" firstAttribute="leading" secondItem="8bw-3y-cnp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JYm-5e-vjU"/>
+                            <constraint firstItem="Y5t-CI-kxS" firstAttribute="trailing" secondItem="Kw2-AQ-wpj" secondAttribute="trailing" type="default" id="O5p-Zb-oRI"/>
+                            <constraint firstItem="Kw2-AQ-wpj" firstAttribute="leading" secondItem="8bw-3y-cnp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="XL5-Id-vta"/>
+                            <constraint firstItem="8g6-i4-gc7" firstAttribute="top" secondItem="Kw2-AQ-wpj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cy3-Xz-UdH"/>
+                            <constraint firstItem="Kw2-AQ-wpj" firstAttribute="top" secondItem="8bw-3y-cnp" secondAttribute="top" constant="20" symbolic="YES" type="default" id="fml-GE-CYA"/>
+                            <constraint firstItem="Mt3-fD-Ho1" firstAttribute="leading" secondItem="8bw-3y-cnp" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hAt-t3-e6N"/>
+                            <constraint firstItem="Y5t-CI-kxS" firstAttribute="top" secondItem="8bw-3y-cnp" secondAttribute="top" constant="95" id="m4i-nu-Aku"/>
+                            <constraint firstAttribute="trailing" secondItem="8g6-i4-gc7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="uA9-xz-A08"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Feed" id="3Pc-bi-c3g">
+                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="fyC-ae-jO5">
+                            <connections>
+                                <action selector="confirmNewFeed:" destination="BHB-W5-0kp" id="4k5-AP-eJL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="tagField" destination="8g6-i4-gc7" id="vrk-XZ-Ryd"/>
+                        <outlet property="urlField" destination="Mt3-fD-Ho1" id="QMR-Mb-C2U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S3x-PM-EgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2270" y="688"/>
+        </scene>
+        <!--Navigation Controller - Edit Feeds-->
+        <scene sceneID="eMf-Tz-0qP">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="uHR-XW-iBo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Edit Feeds" id="hIU-Y9-0bD"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="5kK-LC-Hu9">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Z1h-gP-sNO" kind="relationship" relationship="rootViewController" id="y5k-AW-giD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69f-bP-DU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="656"/>
+        </scene>
+        <!--Feed Items - Feed-->
+        <scene sceneID="3Eq-AE-XPj">
+            <objects>
+                <tableViewController title="Feed" id="z5M-OC-WMr" customClass="FeedItems" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WKY-Ex-t49">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell" textLabel="dfp-kV-zkO" style="IBUITableViewCellStyleDefault" id="Y6F-iC-mCD">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="748" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dfp-kV-zkO">
+                                            <rect key="frame" x="10" y="0.0" width="728" height="43"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="K3o-VJ-Y0a" kind="push" identifier="showSource" id="ai3-mG-hDX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="z5M-OC-WMr" id="rxY-Q8-feC"/>
+                            <outlet property="delegate" destination="z5M-OC-WMr" id="w9D-NN-7Xo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Feed Items" id="PNU-nq-Sn7"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ic6-lV-aKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173" y="-634"/>
+        </scene>
+        <!--Source Content - Source Content-->
+        <scene sceneID="F6f-cz-Ula">
+            <objects>
+                <viewController id="K3o-VJ-Y0a" customClass="SourceContent" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J5i-nn-Jch">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ulT-I6-B0r">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ulT-I6-B0r" firstAttribute="top" secondItem="J5i-nn-Jch" secondAttribute="top" type="default" id="2Vg-cU-MwC"/>
+                            <constraint firstItem="ulT-I6-B0r" firstAttribute="bottom" secondItem="J5i-nn-Jch" secondAttribute="bottom" type="default" id="4P9-e8-3ig"/>
+                            <constraint firstItem="ulT-I6-B0r" firstAttribute="trailing" secondItem="J5i-nn-Jch" secondAttribute="trailing" type="default" id="4uS-YW-dOc"/>
+                            <constraint firstItem="ulT-I6-B0r" firstAttribute="leading" secondItem="J5i-nn-Jch" secondAttribute="leading" type="default" id="8GY-2d-XJb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Source Content" id="oOt-4R-pGz"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="webView" destination="ulT-I6-B0r" id="n08-ip-ggw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d0m-J3-LVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3037" y="-634"/>
+        </scene>
+        <!--Navigation Controller - Search Feeds-->
+        <scene sceneID="JqO-ad-qyE">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="IlZ-R7-mMf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search Feeds" id="3Kz-vd-9gO"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="TMY-GR-bdH">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="R5x-dO-5P9" kind="relationship" relationship="rootViewController" id="1zK-9w-p96"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j5H-hO-w4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="484" y="-502"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Yyc-Nc-Kub">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="dau-5A-Leu" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="K1n-Df-AmN">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="IlZ-R7-mMf" kind="relationship" relationship="viewControllers" id="EjQ-Tw-Jbp"/>
+                        <segue destination="uHR-XW-iBo" kind="relationship" relationship="viewControllers" id="4lK-pJ-qMv"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jf0-EL-xpX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-532" y="208"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="EditFeeds" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditFeeds.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteMode:"/>
+            </relationships>
+        </class>
+        <class className="FeedItems" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedItems.h"/>
+        </class>
+        <class className="MyFeeds" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyFeeds.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NewFeed" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFeed.h"/>
+            <relationships>
+                <relationship kind="action" name="confirmNewFeed:"/>
+                <relationship kind="action" name="taskEntered:" candidateClass="UITextField"/>
+                <relationship kind="action" name="textFieldTagLimiter:" candidateClass="UITextField"/>
+                <relationship kind="action" name="textFieldURLLimiter:" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tagField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="urlField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SourceContent" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SourceContent.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

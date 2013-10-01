@@ -38,7 +38,8 @@
 
 - (void)createOrOpenDB
 {
-    NSString *docPath = PROJECT_DIR;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docPath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
     
     dbPathString = [docPath stringByAppendingPathComponent:@"Feeds.db"];
     
