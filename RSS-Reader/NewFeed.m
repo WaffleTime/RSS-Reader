@@ -157,6 +157,20 @@
 }
 
 
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.tagField resignFirstResponder];
+    [self.urlField resignFirstResponder];
+}
+
+
+
+- (void) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+
+
 @end
 
 

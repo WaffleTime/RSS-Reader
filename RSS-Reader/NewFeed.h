@@ -34,6 +34,8 @@
 
 - (IBAction)textFieldURLLimiter:(UITextField *)textField;
 
+- (void)textFieldShouldReturn:(UITextField *)textField;
+
 @end
 
 
